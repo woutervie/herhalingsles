@@ -14,6 +14,16 @@ app.get('/', function(request, response){
     response.send("Hello world");
 });
 
+var Book = function(id, name){
+    this.id = id;
+    this.name = name;
+};
+
+app.get('/books', function(request, response){
+    var books = [new Book(1, 'harry potter'), new Book(2, 'Blinker')];
+    response.send(books);
+});
+
 console.log("Hello world!");
 
 app.listen(4321);
