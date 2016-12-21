@@ -19,9 +19,16 @@ var Book = function(id, name){
     this.name = name;
 };
 
+var teller = 3;
+var books = [new Book(1, 'harry potter'), new Book(2, 'Blinker')];
+
 app.get('/books', function(request, response){
-    var books = [new Book(1, 'harry potter'), new Book(2, 'Blinker')];
     response.send(books);
+});
+
+app.post('/books', function(request, response){
+    var book = new Book(teller++, request.body.name); // {"name":"The Da Vinci Code"}
+    books.push(book);
 });
 
 console.log("Hello world!");
