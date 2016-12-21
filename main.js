@@ -10,6 +10,10 @@ var parser = require('body-parser'); // extensie op express om eenvoudig body ui
 var app = express();
 app.use(parser.json());
 
+app.get('/', function(request, response){
+    response.send("Hello world");
+});
+
 console.log("Hello world!");
 
 app.listen(4321);
