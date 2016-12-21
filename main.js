@@ -29,8 +29,10 @@ app.get('/books', function(request, response){
 app.post('/books', function(request, response){
     var book = new Book(teller++, request.body.name); // {"name":"The Da Vinci Code"}
     books.push(book);
+    response.status(201).send();
 });
 
 console.log("Hello world!");
+console.log(books);
 
 app.listen(4321);
